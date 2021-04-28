@@ -1,26 +1,15 @@
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 
+const useFetch = (setDiaryList, URL) => {
+    const getDiaries = async () => {
+        const data = await fetch(URL);
+        const jsonData = await data.json();
+        setDiaryList(jsonData);
+    };
 
-export const useFetch = (url)=>{
-
-    const [status, setStatus] = useState(true);
-    const [users, setUsers] = useState([]);
-
-    const getUserlist = async ()=>{
-        // const response = await fetch(url, {
-        // 	mode:'no-cors'
-        // });
-        const response = await fetch(url);
-        const data = await response.json();
-        
-        console.log(data);
-        setUsers(data);
-        setStatus(false);
-    }
-
-    useEffect(()=>{
-    	getUserlist();
+    useEffect(() => {
+        getDiaries();
     }, []);
-    
+};
 
-}
+export default useFetch;

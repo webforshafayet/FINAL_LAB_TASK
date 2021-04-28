@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function User({Comment, id, feeling,thought,experience,deleteUser}){
+export default function User({  id,comment, feeling,thought,experience,deleteUser}){
 
     // const {name, id, dept} =props;
  
